@@ -1,0 +1,28 @@
+# Segredos e configuração local
+.env
+sincronizador/.env
+gerenciador/config/config.php
+cloudflare-worker/.dev.vars
+
+# Dependências
+node_modules/
+gerenciador/vendor/
+sincronizador/.venv/
+__pycache__/
+*.pyc
+
+# Dados e logs gerados
+sincronizador/logs/*
+!sincronizador/logs/.gitkeep
+gerenciador/storage/uploads/*
+!gerenciador/storage/uploads/.gitkeep
+gerenciador/storage/logs/*
+!gerenciador/storage/logs/.gitkeep
+cloudflare-worker/.wrangler/
+.dev.vars*
+
+# Cache local de ferramentas e do editor (contém dados da conta)
+.wrangler/
+.vscode/
+*.log
+*.zip

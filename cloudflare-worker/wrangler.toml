@@ -1,0 +1,22 @@
+name = "pulse-api"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+compatibility_flags = ["nodejs_compat"]
+
+# Rota pública da API (ajuste para o seu domínio)
+# routes = [{ pattern = "api.dominio.com.br/api/*", zone_name = "dominio.com.br" }]
+
+[vars]
+ALLOWED_ORIGINS = "https://pulse-pesquisa.pulse-cloudflare-worker.workers.dev"
+RATE_LIMIT_PER_HOUR = "10"
+
+# KV para o limite de envios por IP (crie com: npx wrangler kv namespace create RATE_KV)
+[[kv_namespaces]]
+binding = "RATE_KV"
+id = "42d0b6f974f04439bd4f964232868e58"
+
+# Secrets (NUNCA neste arquivo). Configure com:
+#   npx wrangler secret put SUPABASE_URL
+#   npx wrangler secret put SUPABASE_SERVICE_ROLE_KEY
+#   npx wrangler secret put TURNSTILE_SECRET_KEY
+#   npx wrangler secret put RATE_SALT_SECRET
