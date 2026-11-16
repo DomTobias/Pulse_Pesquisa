@@ -14,6 +14,12 @@ import sys
 import threading
 import time
 
+# Valida os certificados HTTPS pelo repositório do Windows (inclui a CA corporativa usada por firewalls com
+# inspeção SSL). A verificação continua obrigatória; só muda a lista de autoridades confiáveis.
+import truststore
+
+truststore.inject_into_ssl()
+
 from app.config.settings import ConfigInvalida, carregar_config
 from app.database.mysql import MySQL
 from app.publicacao.publicador import Publicador
